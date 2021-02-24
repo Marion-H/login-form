@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 
 import InputFormSignIn from "./InputFormSignIn";
 
-import { FaArrowRight } from "react-icons/fa";
+
 
 import "./css/formAuth.scss";
+import ButtonSign from "./common/ButtonSign";
 
 function FormAuth() {
   return (
@@ -14,14 +15,7 @@ function FormAuth() {
         <span className="textUnderInput">
           <Link to="/forgotPassword">Forgot your password ?</Link>
         </span>
-        <div className="signIn">
-          <span className="textButton">Sign in</span>
-          <button className="buttonSignIn">
-            <span className="arrowButton">
-              <FaArrowRight />
-            </span>
-          </button>
-        </div>
+        <ButtonSign text="Sign in" />
       </form>
     </div>
   );
