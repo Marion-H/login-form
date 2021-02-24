@@ -1,14 +1,16 @@
 import InputFormSignIn from "./InputFormSignIn";
-import InputFormSignUp from "./InputFormSignUp";
 
-import "./css/formCreate.scss"
+import "./css/formCreate.scss";
+import InputForm from "./common/InputForm";
 
 function FormCreate() {
   return (
     <div className="formCreate">
-      <form >
+      <form>
+        <InputForm type="text" icon="bsFillPersonFill" />
         <InputFormSignIn />
-        <InputFormSignUp />
+        <InputForm type="email" icon="faPhoneAlt" />
+        <InputForm type="text" icon="aiOutlineMail" />
       </form>
     </div>
   );
