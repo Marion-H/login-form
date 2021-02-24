@@ -1,0 +1,21 @@
+.createPage {
+    width: 500px;
+    height: 800px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    position: relative;
+
+    .titleForm {
+        margin-top: 158px;
+        
+        h2 {
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 35px;
+            margin: auto;
+            width: 285px;
+            height: 26px;
+        }
+    }
+}

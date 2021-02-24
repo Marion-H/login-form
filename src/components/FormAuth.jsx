@@ -1,44 +1,18 @@
-import { useState } from "react";
+import { Link } from "react-router-dom"
 
-import { FaEye, FaArrowRight } from "react-icons/fa";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { BsFillPersonFill } from "react-icons/bs";
+import InputFormSignIn from "./InputFormSignIn";
+
+import { FaArrowRight } from "react-icons/fa";
 
 import "./css/formAuth.scss";
 
-// FaEyeSlash
-
 function FormAuth() {
-  const [type, setType] = useState("password");
-
-  const changeVisibilyPwd = () => {
-    if (type === "password") {
-        return setType("text")
-    } else {
-        return setType("password")
-    }
-  };
-
   return (
     <div className="formAuth">
       <form>
-        <div className="inputName">
-          <span className="fillPerson">
-            <BsFillPersonFill />
-          </span>
-          <input type="text" />
-        </div>
-        <div className="inputPassword">
-          <span className="lockPassword">
-            <RiLockPasswordFill />
-          </span>
-          <input type={type} />
-          <span class="eyePassword" onClick={() => changeVisibilyPwd()}>
-            <FaEye />
-          </span>
-        </div>
+        <InputFormSignIn />
         <span className="textUnderInput">
-          <a href="#">Forgot your password ?</a>
+          <Link to="/forgotPassword">Forgot your password ?</Link>
         </span>
         <div className="signIn">
           <span className="textButton">Sign in</span>
