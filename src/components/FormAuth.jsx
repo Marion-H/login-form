@@ -1,11 +1,24 @@
-import { FaEye } from "react-icons/fa";
+import { useState } from "react";
+
+import { FaEye, FaArrowRight } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
+
 import "./css/formAuth.scss";
 
 // FaEyeSlash
 
 function FormAuth() {
+  const [type, setType] = useState("password");
+
+  const changeVisibilyPwd = () => {
+    if (type === "password") {
+        return setType("text")
+    } else {
+        return setType("password")
+    }
+  };
+
   return (
     <div className="formAuth">
       <form>
@@ -13,19 +26,28 @@ function FormAuth() {
           <span className="fillPerson">
             <BsFillPersonFill />
           </span>
-          <input />
+          <input type="text" />
         </div>
         <div className="inputPassword">
           <span className="lockPassword">
             <RiLockPasswordFill />
           </span>
-          <input />
-          <span class="eyePassword">
+          <input type={type} />
+          <span class="eyePassword" onClick={() => changeVisibilyPwd()}>
             <FaEye />
           </span>
         </div>
-        <span>Forgot your password ?</span>
-        <button>Sign in</button>
+        <span className="textUnderInput">
+          <a href="#">Forgot your password ?</a>
+        </span>
+        <div className="signIn">
+          <span className="textButton">Sign in</span>
+          <button className="buttonSignIn">
+            <span className="arrowButton">
+              <FaArrowRight />
+            </span>
+          </button>
+        </div>
       </form>
     </div>
   );

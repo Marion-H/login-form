@@ -27,7 +27,6 @@
             top: 18px;
             right: 15px;
             font-size: 21px;
-            
         }
     }
     input {
@@ -39,6 +38,45 @@
         padding-left: 70px;
         padding-right: 70px;
         font-size: 21px;
-        
+        border-style: none;
+    }
+
+    .textUnderInput a {
+        display: flex;
+        justify-content: flex-end;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        // float: right;
+        color: #9d9d9d;
+    }
+
+    .signIn {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 92px;
+
+        .textButton {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 20px;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+        .buttonSignIn {
+            width: 55px;
+            height: 43px;
+            background: linear-gradient(180deg, #f5d355 0%, #f57d25 100%);
+            border-radius: 30px;
+            border-style: none;
+
+            .arrowButton {
+                color: white;
+                font-size: 25px;
+            }
+        }
     }
 }

@@ -1,10 +1,11 @@
 import "./app.scss";
-import Authentication from "./components/Authentication";
+
+import Router from "./components/Router";
 
 function App() {
   return (
     <div className="app">
-      <Authentication />
+      <Router />
     </div>
   );
 }
