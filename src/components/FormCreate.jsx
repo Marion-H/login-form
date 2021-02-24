@@ -7,7 +7,6 @@ function FormCreate() {
   return (
     <div className="formCreate">
       <form>
-        <InputForm type="text" icon="bsFillPersonFill" />
         <InputFormSignIn />
         <InputForm type="email" icon="faPhoneAlt" />
         <InputForm type="text" icon="aiOutlineMail" />

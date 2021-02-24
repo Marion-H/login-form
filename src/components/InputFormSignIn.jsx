@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { BsFillPersonFill } from "react-icons/bs";
+import InputForm from "./common/InputForm";
+import InputPassword from "./common/InputPassword";
 
 
 function InputFormSignIn() {
@@ -22,13 +23,9 @@ function InputFormSignIn() {
 
   return (
     <>
-      <div className="inputName">
-        <span className="fillPerson">
-          <BsFillPersonFill />
-        </span>
-        <input type="text" />
-      </div>
-      <div className="inputPassword">
+      <InputForm type="text" icon="bsFillPersonFill" />
+      <InputPassword />
+      {/* <div className="inputPassword">
         <span className="lockPassword">
           <RiLockPasswordFill />
         </span>
@@ -36,7 +33,7 @@ function InputFormSignIn() {
         <span class="eyePassword" onClick={() => showPwd()}>
           {iconEye === "open" ? <FaEye /> : <FaEyeSlash />}
         </span>
-      </div>
+      </div> */}
     </>
   );
 }
