@@ -1,10 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import { AiOutlineMail } from "react-icons/ai";
 import { FaPhoneAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 
-function InputForm({ icon, type }) {
-    
+import { setDataForm } from "../store/action/data";
+
+function InputForm({ icon, type, keyName }) {
+  const dataForm = useSelector((state) => state.dataForm);
+  const stateKeyName = dataForm.keyName;
+  const dispatch = useDispatch();
+
   const renderIcon = (icon) => {
     switch (icon) {
       case "aiOutlineMail":
@@ -23,7 +30,12 @@ function InputForm({ icon, type }) {
     <>
       <div className="inputName">
         <span className="fillPerson">{renderIcon(icon)}</span>
-        <input type={type} />
+        <input
+          type={type}
+          placeholder="Password"
+          value={stateKeyName}
+          onChange={(e) => dispatch(setDataForm(e, keyName))}
+        />
       </div>
     </>
   );
