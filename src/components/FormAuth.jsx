@@ -1,27 +1,35 @@
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useSelector } from "react-redux";
+// import { useState } from "react";
 
 import InputFormSignIn from "./InputFormSignIn";
 import ButtonSign from "./common/ButtonSign";
 import apiUrl from "../variable/apiUrl";
+import { notifyError, notifySuccess } from "./common/toastifyFunction";
 
 import "./scss/formAuth.scss";
 
 function FormAuth() {
+  // const [error, setError] = useState("");
   const dataForm = useSelector((state) => state.dataForm);
   const { name, password } = dataForm;
 
   const getUser = async (e) => {
     e.preventDefault();
     try {
-      const res = await Axios.post(`${apiUrl}/login/`, {
+      const res = await Axios.post(`${apiUrl}/login`, {
         name,
         password,
       });
-      console.log(res);
+      const { token, uuid } = res.data;
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("uuid", uuid);
+      notifySuccess()
     } catch (error) {
-      console.log(error)
+      const { message } = error.response.data;
+      // setError(message)
+      notifyError(message);
     }
   };
 
