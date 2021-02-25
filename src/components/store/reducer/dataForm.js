@@ -5,7 +5,7 @@ const initialState = {
     name:"",
     password:"",
     email:"",
-    phone:""
+    mobile:""
 }
 
 const dataForm = (state = initialState, action) => {

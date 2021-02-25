@@ -9,8 +9,8 @@ function FormCreate() {
     <div className="formAuth">
       <form>
         <InputFormSignIn />
-        <InputForm type="email" icon="faPhoneAlt" />
-        <InputForm type="tel" icon="aiOutlineMail" />
+        <InputForm type="email" icon="faPhoneAlt" keyName="email" textPlaceHolder="Email"/>
+        <InputForm type="tel" icon="aiOutlineMail" keyName="mobile" textPlaceHolder="Mobile"/>
         <ButtonSign text="Create" />
       </form>
     </div>

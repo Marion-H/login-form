@@ -1,6 +1,8 @@
 import { FaArrowRight } from "react-icons/fa";
 
 function ButtonSign ({text}) {
+
+  
     return(
         <div className="signIn">
           <span className="textButton">{text}</span>

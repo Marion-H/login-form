@@ -4,7 +4,7 @@ import InputPassword from "./common/InputPassword";
 function InputFormSignIn() {
   return (
     <>
-      <InputForm type="text" icon="bsFillPersonFill" keyName="name" />
+      <InputForm type="text" icon="bsFillPersonFill" keyName="name" textPlaceHolder="Username"/>
       <InputPassword keyName="password" />
     </>
   );

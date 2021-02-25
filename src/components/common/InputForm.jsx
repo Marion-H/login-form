@@ -7,9 +7,9 @@ import { BsFillPersonFill } from "react-icons/bs";
 
 import { setDataForm } from "../store/action/data";
 
-function InputForm({ icon, type, keyName }) {
+function InputForm({ icon, type, keyName, textPlaceHolder }) {
   const dataForm = useSelector((state) => state.dataForm);
-  const stateKeyName = dataForm.keyName;
+  const stateKeyName = dataForm[keyName];
   const dispatch = useDispatch();
 
   const renderIcon = (icon) => {
@@ -32,7 +32,7 @@ function InputForm({ icon, type, keyName }) {
         <span className="fillPerson">{renderIcon(icon)}</span>
         <input
           type={type}
-          placeholder="Password"
+          placeholder={textPlaceHolder}
           value={stateKeyName}
           onChange={(e) => dispatch(setDataForm(e, keyName))}
         />
