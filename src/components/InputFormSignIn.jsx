@@ -5,7 +5,7 @@ function InputFormSignIn() {
   return (
     <>
       <InputForm type="text" icon="bsFillPersonFill" />
-      <InputPassword name="password" />
+      <InputPassword keyName="password" />
     </>
   );
 }

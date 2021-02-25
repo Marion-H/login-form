@@ -6,8 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { setDataForm} from "../store/action/data";
 
-function InputPassword({name}) {
-  console.log(name)
+function InputPassword({keyName}) {
   const [type, setType] = useState("password");
   const [iconEye, setIconEye] = useState("open");
   const dataForm = useSelector((state) => state.dataForm);
@@ -33,7 +32,7 @@ function InputPassword({name}) {
         type={type}
         placeholder="Password"
         value={password}
-        onChange={(e) => dispatch(setDataForm(e, name))}
+        onChange={(e) => dispatch(setDataForm(e, keyName))}
       />
       <span className="eyePassword" onClick={() => isShowPwd()}>
         {iconEye === "open" ? <FaEye /> : <FaEyeSlash />}
