@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 import FormAuth from "./FormAuth";
 
-import "./css/authentication.scss";
+import "./scss/authentication.scss";
 
 function authentication() {
   return (

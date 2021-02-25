@@ -1,6 +1,6 @@
 import InputFormSignIn from "./InputFormSignIn";
 
-import "./css/formAuth.scss";
+import "./scss/formAuth.scss";
 import InputForm from "./common/InputForm";
 import ButtonSign from "./common/ButtonSign";
 

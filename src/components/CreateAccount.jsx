@@ -1,7 +1,7 @@
 import { FaFacebook, FaGooglePlus } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import FormCreate from "./FormCreate";
-import "./css/createAccount.scss";
+import "./scss/createAccount.scss";
 
 const renderListFooter = () => {
   return (
