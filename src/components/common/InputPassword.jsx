@@ -1,23 +1,17 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+
+import { setPassword } from "../store/action/data";
 
 function InputPassword() {
   const [type, setType] = useState("password");
   const [iconEye, setIconEye] = useState("open");
   const dataForm = useSelector((state) => state.dataForm);
   const { password } = dataForm;
-  const dispatch = useDispatch();
-
-  const setPassword = (e) => {
-    e.preventDefault();
-    return dispatch({
-      type: "ADD-DATA",
-      payload: { ...dataForm, password: e.target.value },
-    });
-  };
+  const dispatch = useDispatch()
 
   const isShowPwd = () => {
     if (type === "password") {
@@ -38,7 +32,7 @@ function InputPassword() {
         type={type}
         placeholder="Password"
         value={password}
-        onChange={(e) => setPassword(e)}
+        onChange={(e) => dispatch(setPassword(e))}
       />
       <span className="eyePassword" onClick={() => isShowPwd()}>
         {iconEye === "open" ? <FaEye /> : <FaEyeSlash />}
