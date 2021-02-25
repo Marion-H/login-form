@@ -1,13 +1,14 @@
 import { ADD_DATA } from "./actionType";
 
-export const setPassword = (e) => {
+export const setDataForm = (e, name) => {
     return (dispatch, getState) => {
-        const state = getState()
-        const {dataForm} = state
-        e.preventDefault();
-        return dispatch({
-            type: ADD_DATA,
-            payload: { ...dataForm, password: e.target.value },
-        });
-    }
+        console.log(name)
+    e.preventDefault();
+    const state = getState();
+    const { dataForm } = state;
+    return dispatch({
+      type: ADD_DATA,
+      payload: {...dataForm, [name]: e.target.value}
+    });
   };
+};
