@@ -10,7 +10,7 @@ function FormCreate() {
       <form>
         <InputFormSignIn />
         <InputForm type="email" icon="faPhoneAlt" />
-        <InputForm type="text" icon="aiOutlineMail" />
+        <InputForm type="tel" icon="aiOutlineMail" />
         <ButtonSign text="Create" />
       </form>
     </div>

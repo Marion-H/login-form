@@ -1,7 +1,28 @@
-import {FaFacebook, FaGooglePlus} from "react-icons/fa"
-import { AiFillTwitterCircle} from "react-icons/ai"
+import { FaFacebook, FaGooglePlus } from "react-icons/fa";
+import { AiFillTwitterCircle } from "react-icons/ai";
 import FormCreate from "./FormCreate";
 import "./css/createAccount.scss";
+
+const renderListFooter = () => {
+  return (
+    <div className="footerCreatePage">
+      <span className="textFooterForm">
+        Or create account using social media
+      </span>
+      <ul>
+        <li>
+          <FaFacebook />
+        </li>
+        <li>
+          <AiFillTwitterCircle />
+        </li>
+        <li>
+          <FaGooglePlus />
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 function CreateAccount() {
   return (
@@ -10,16 +31,7 @@ function CreateAccount() {
         <h2>Create your account</h2>
       </div>
       <FormCreate />
-      <div className="footerCreatePage">
-        <span className="textFooterForm">
-          Or create account using social media
-        </span>
-        <ul>
-          <li><FaFacebook /></li>
-          <li><AiFillTwitterCircle /></li>
-          <li><FaGooglePlus /></li>
-        </ul>
-      </div>
+      {renderListFooter()}
     </div>
   );
 }

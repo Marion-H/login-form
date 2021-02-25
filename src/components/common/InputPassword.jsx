@@ -7,7 +7,7 @@ function InputPassword() {
   const [type, setType] = useState("password");
   const [iconEye, setIconEye] = useState("open");
 
-  const showPwd = () => {
+  const isShowPwd = () => {
     if (type === "password") {
       setIconEye("close");
       return setType("text");
@@ -21,8 +21,8 @@ function InputPassword() {
       <span className="lockPassword">
         <RiLockPasswordFill />
       </span>
-      <input type={type} />
-      <span class="eyePassword" onClick={() => showPwd()}>
+      <input type="password" />
+      <span class="eyePassword" onClick={() => isShowPwd()}>
         {iconEye === "open" ? <FaEye /> : <FaEyeSlash />}
       </span>
     </div>
