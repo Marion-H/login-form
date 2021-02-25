@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 
@@ -12,6 +13,7 @@ import "./scss/formAuth.scss";
 function FormCreate() {
 
   const dataForm = useSelector((state) => state.dataForm);
+  const history = useHistory()
 
   const postNewUser = async (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function FormCreate() {
       await Axios.post(`${apiUrl}/users`, dataForm);
       const message = "User is created"
       notifySuccess(message)
+      history.push("/")
     } catch (error) {
       const { message } = error.response.data;
       notifyError(message)
