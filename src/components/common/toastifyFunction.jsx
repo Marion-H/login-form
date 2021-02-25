@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
-export const notifySuccess = () => {
-  toast.success("Connecté", {
+export const notifySuccess = (message) => {
+  toast.success(`${message}`, {
     position: "bottom-center",
     autoClose: 5000,
     hideProgressBar: false,

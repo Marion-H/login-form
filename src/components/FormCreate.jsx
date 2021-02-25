@@ -1,16 +1,36 @@
-import InputFormSignIn from "./InputFormSignIn";
+import { useSelector } from "react-redux";
+import Axios from "axios";
 
-import "./scss/formAuth.scss";
+import InputFormSignIn from "./InputFormSignIn";
 import InputForm from "./common/InputForm";
 import ButtonSign from "./common/ButtonSign";
+import apiUrl from "../variable/apiUrl";
+import { notifyError, notifySuccess } from "./common/toastifyFunction";
+
+import "./scss/formAuth.scss";
 
 function FormCreate() {
+
+  const dataForm = useSelector((state) => state.dataForm);
+
+  const postNewUser = async (e) => {
+    e.preventDefault();
+    try {
+      await Axios.post(`${apiUrl}/users`, dataForm);
+      const message = "User is created"
+      notifySuccess(message)
+    } catch (error) {
+      const { message } = error.response.data;
+      notifyError(message)
+    }
+  };
+  
   return (
     <div className="formAuth">
-      <form>
+      <form onSubmit={postNewUser}>
         <InputFormSignIn />
-        <InputForm type="email" icon="faPhoneAlt" keyName="email" textPlaceHolder="Email"/>
-        <InputForm type="tel" icon="aiOutlineMail" keyName="mobile" textPlaceHolder="Mobile"/>
+        <InputForm type="tel" icon="faPhoneAlt" keyName="mobile" textPlaceHolder="Mobile"/>
+        <InputForm type="email" icon="aiOutlineMail" keyName="email" textPlaceHolder="Email"/>
         <ButtonSign text="Create" />
       </form>
     </div>
