@@ -1,7 +1,10 @@
-import { FaFacebook, FaGooglePlus } from "react-icons/fa";
+import { FaFacebook, FaGooglePlus, FaArrowLeft } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
+
 import FormCreate from "./FormCreate";
+
 import "./scss/createAccount.scss";
+import { Link } from "react-router-dom";
 
 const renderListFooter = () => {
   return (
@@ -27,6 +30,13 @@ const renderListFooter = () => {
 function CreateAccount() {
   return (
     <div className="createAccount">
+      <Link to="/">
+        <button className="buttonBack">
+          <span className="arrowButton">
+            <FaArrowLeft />
+          </span>
+        </button>
+      </Link>
       <div className="titleForm">
         <h2>Create your account</h2>
       </div>

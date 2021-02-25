@@ -6,8 +6,22 @@
     display: grid;
     position: relative;
 
+    .buttonBack {
+        width: 55px;
+        height: 43px;
+        background: linear-gradient(180deg, #f5d355 0%, #f57d25 100%);
+        border-radius: 30px;
+        border-style: none;
+        margin-top: 10px;
+        margin-left: 10px;
+
+        .arrowButton {
+            color: white;
+            font-size: 25px;
+        }
+    }
+
     .titleForm {
-        margin-top: 100px;
 
         h2 {
             font-weight: 500;
