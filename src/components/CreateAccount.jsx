@@ -5,6 +5,8 @@ import FormCreate from "./FormCreate";
 
 import "./scss/createAccount.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { DELETE_DATA } from "./store/action/actionType";
 
 const renderListFooter = () => {
   return (
@@ -27,11 +29,18 @@ const renderListFooter = () => {
   );
 };
 
+
 function CreateAccount() {
+
+  const dispatch = useDispatch()
+
+  const deleteDataForm = () => {
+    return dispatch({type: DELETE_DATA})
+  }
   return (
     <div className="createAccount">
       <Link to="/">
-        <button className="buttonBack">
+        <button className="buttonBack" onClick={()=>deleteDataForm()}>
           <span className="arrowButton">
             <FaArrowLeft />
           </span>
