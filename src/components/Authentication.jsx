@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import FormAuth from "./FormAuth";
 
@@ -13,12 +13,12 @@ function authentication() {
         <h2>Sign in to your account</h2>
       </div>
       <FormAuth />
-      <span className="textFooterForm">
+      <div className="textFooterForm">
         Don't have an account ?{" "}
         <span>
           <Link to="/create">Create</Link>
         </span>
-      </span>
+      </div>
     </div>
   );
 }

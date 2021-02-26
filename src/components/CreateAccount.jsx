@@ -29,7 +29,6 @@ const renderListFooter = () => {
   );
 };
 
-
 function CreateAccount() {
 
   const dispatch = useDispatch()
