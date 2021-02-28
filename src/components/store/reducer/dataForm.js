@@ -1,4 +1,4 @@
-import { ADD_DATA, DELETE_DATA } from "../action/actionType";
+import { ADD_DATA, DELETE_DATA, LOGOUT } from "../action/actionType";
 
 const initialState = {
   name: "",
@@ -14,6 +14,9 @@ const dataForm = (state = initialState, action) => {
       return payload;
     case DELETE_DATA:
       return initialState;
+      case LOGOUT:
+        sessionStorage.clear()
+        return {}
     default:
       return state;
   }
