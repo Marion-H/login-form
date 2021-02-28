@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
-import InputFormSignIn from "./InputFormSignIn";
 import ButtonSign from "./common/ButtonSign";
 import apiUrl from "../variable/apiUrl";
 import { notifyError, notifySuccess } from "./common/toastifyFunction";
 
 import "./scss/formAuth.scss";
+import InputForm from "./common/InputForm";
 
 function FormAuth() {
   const dataForm = useSelector((state) => state.dataForm);
@@ -34,7 +34,8 @@ function FormAuth() {
   return (
     <div className="formAuth">
       <form onSubmit={getLoginUser}>
-        <InputFormSignIn />
+      <InputForm type="text" icon="BsFillPersonFill" keyName="name" placeholder="Username"/>
+      <InputForm type="password" icon="RiLockPasswordFill" keyName="password" placeholder="Password"/>
         <span className="textUnderInput">
           <Link to="/forgotPassword">Forgot your password ?</Link>
         </span>

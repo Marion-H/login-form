@@ -1,41 +1,64 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { AiOutlineMail } from "react-icons/ai";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaPhoneAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 
 import { setDataForm } from "../store/action/data";
+import { useState } from "react";
 
-function InputForm({ icon, type, keyName, textPlaceHolder }) {
+function InputForm({ icon, type, keyName, placeholder }) {
   const dataForm = useSelector((state) => state.dataForm);
   const stateKeyName = dataForm[keyName];
+  const [typeInput, setTypeInput] = useState(type);
+  const [iconEye, setIconEye] = useState("open");
   const dispatch = useDispatch();
+
+  const isShowPwd = () => {
+    if (typeInput === "password") {
+      setIconEye("close");
+      return setTypeInput("text");
+    } else {
+      setIconEye("open");
+      return setTypeInput("password");
+    }
+  };
 
   const renderIcon = (icon) => {
     switch (icon) {
-      case "aiOutlineMail":
+      case "AiOutlineMail":
         return <AiOutlineMail />;
-      case "faPhoneAlt":
+      case "FaPhoneAlt":
         return <FaPhoneAlt />;
-      case "riLockPasswordFill":
+      case "RiLockPasswordFill":
         return <RiLockPasswordFill />;
-      case "bsFillPersonFill":
+      case "BsFillPersonFill":
         return <BsFillPersonFill />;
+      case "FaEye":
+        return <FaEye />;
+      case "FaEyeSlash":
+        <FaEyeSlash />;
+        break;
       default:
         break;
     }
   };
   return (
     <>
-      <div className="inputName">
-        <span className="fillPerson">{renderIcon(icon)}</span>
+      <div className="inputStyle">
+        <span className="iconeStyle">{renderIcon(icon)}</span>
         <input
-          type={type}
-          placeholder={textPlaceHolder}
+          type={typeInput}
+          placeholder={placeholder}
           value={stateKeyName}
           onChange={(e) => dispatch(setDataForm(e, keyName))}
         />
+        {type === "password" && (
+          <span className="eyePassword" onClick={() => isShowPwd()}>
+            {iconEye === "open" ? <FaEye /> : <FaEyeSlash />}
+          </span>
+        )}
       </div>
     </>
   );

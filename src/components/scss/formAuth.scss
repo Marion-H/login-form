@@ -2,25 +2,13 @@
     margin-right: auto;
     margin-left: auto;
 
-    .inputName {
+    .inputStyle{
         position: relative;
-        .fillPerson {
+        .iconeStyle {
             position: absolute;
             top: 18px;
             left: 10px;
             font-size: 21px;
-            // width: 50px;
-        }
-    }
-
-    .inputPassword {
-        position: relative;
-        .lockPassword {
-            position: absolute;
-            top: 18px;
-            left: 10px;
-            font-size: 21px;
-            // width: 50px;
         }
         .eyePassword {
             position: absolute;
