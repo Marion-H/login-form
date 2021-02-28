@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -12,6 +12,7 @@ import InputForm from "./common/InputForm";
 function FormAuth() {
   const dataForm = useSelector((state) => state.dataForm);
   const { name, password } = dataForm;
+  const history = useHistory()
 
   const getLoginUser = async (e) => {
     e.preventDefault();
@@ -25,6 +26,7 @@ function FormAuth() {
       sessionStorage.setItem("uuid", uuid);
       const message = "Connected"
       notifySuccess(message)
+      history.push("/welcome")
     } catch (error) {
       const { message } = error.response.data;
       notifyError(message);

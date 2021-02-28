@@ -8,8 +8,8 @@ import "./scss/formAuth.scss";
 
 function FormResetPassword() {
 
-  const dataForm = useSelector((state) => state.dataForm);
-  const { email } = dataForm
+  // const dataForm = useSelector((state) => state.dataForm);
+  // const { email } = dataForm
   const history = useHistory()
 
   const postEmailForReset = (e) => {
@@ -20,7 +20,7 @@ function FormResetPassword() {
   return (
     <div className="formAuth">
       <form onSubmit={postEmailForReset}>
-        <InputForm type="email" icon="aiOutlineMail" keyName="email" textPlaceHolder="Email"/>
+        <InputForm type="email" icon="AiOutlineMail" keyName="email" textPlaceHolder="Email"/>
         <ButtonSign text="Reset password" type="submit" />
       </form>
     </div>
