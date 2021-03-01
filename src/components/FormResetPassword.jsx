@@ -14,7 +14,7 @@ function FormResetPassword() {
 
   const postEmailForReset = (e) => {
     e.preventDefault()
-      return history.push("/reset")
+      return history.push("/check-email")
   }
   
   return (

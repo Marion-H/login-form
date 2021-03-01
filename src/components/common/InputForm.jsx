@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash, FaPhoneAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 
-import { setDataForm } from "../store/action/data";
+import { setChangePassword, setDataForm } from "../store/action/data";
 import { useState } from "react";
 
 function InputForm({ icon, type, keyName, placeholder }) {
@@ -44,6 +44,14 @@ function InputForm({ icon, type, keyName, placeholder }) {
         break;
     }
   };
+
+  const checkKeyName = (e) => {
+    if (keyName === "newPassword" || keyName === "confirmPassword") {
+      return dispatch(setChangePassword(e, keyName));
+    } else {
+      return dispatch(setDataForm(e, keyName));
+    }
+  };
   return (
     <>
       <div className="inputStyle">
@@ -52,7 +60,7 @@ function InputForm({ icon, type, keyName, placeholder }) {
           type={typeInput}
           placeholder={placeholder}
           value={stateKeyName}
-          onChange={(e) => dispatch(setDataForm(e, keyName))}
+          onChange={(e) => checkKeyName(e)}
         />
         {type === "password" && (
           <span className="eyePassword" onClick={() => isShowPwd()}>
