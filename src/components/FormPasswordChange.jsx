@@ -37,7 +37,7 @@ function FormPasswordChange() {
             keyName="confirmPassword"
             placeholder="Confirm New Password"
           />
-            { !pwdIsSame && <p>Le password</p> }
+            { !pwdIsSame && <p>Passwords are not the same</p> }
            <ButtonSign text="Reset password" type="submit" disabled={!pwdIsSame}/>
 
         </form>
