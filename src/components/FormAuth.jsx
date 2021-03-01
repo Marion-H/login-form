@@ -1,6 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 import Axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import ButtonSign from "./common/ButtonSign";
 import apiUrl from "../variable/apiUrl";
@@ -8,11 +8,13 @@ import { notifyError, notifySuccess } from "./common/toastifyFunction";
 
 import "./scss/formAuth.scss";
 import InputForm from "./common/InputForm";
+import { DELETE_DATA, LOGIN, UUID } from "./store/action/actionType";
 
 function FormAuth() {
   const dataForm = useSelector((state) => state.dataForm);
   const { name, password } = dataForm;
-  const history = useHistory()
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const getLoginUser = async (e) => {
     e.preventDefault();
@@ -22,11 +24,15 @@ function FormAuth() {
         password,
       });
       const { token, uuid } = res.data;
+      const nameRes = res.data.name;
+      await dispatch({ type: LOGIN, payload: { token, nameRes } });
+      await dispatch({ type: UUID, payload: uuid });
+      await dispatch({ type: DELETE_DATA });
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("uuid", uuid);
-      const message = "Connected"
-      notifySuccess(message)
-      history.push("/welcome")
+      const message = "Connected";
+      notifySuccess(message);
+      history.push("/welcome");
     } catch (error) {
       const { message } = error.response.data;
       notifyError(message);
@@ -36,8 +42,18 @@ function FormAuth() {
   return (
     <div className="formAuth">
       <form onSubmit={getLoginUser}>
-      <InputForm type="text" icon="BsFillPersonFill" keyName="name" placeholder="Username"/>
-      <InputForm type="password" icon="RiLockPasswordFill" keyName="password" placeholder="Password"/>
+        <InputForm
+          type="text"
+          icon="BsFillPersonFill"
+          keyName="name"
+          placeholder="Username"
+        />
+        <InputForm
+          type="password"
+          icon="RiLockPasswordFill"
+          keyName="password"
+          placeholder="Password"
+        />
         <span className="textUnderInput">
           <Link to="/forgotPassword">Forgot your password ?</Link>
         </span>
