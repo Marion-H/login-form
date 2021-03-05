@@ -1,0 +1,6 @@
+export const ADD_DATA = "ADD-DATA"
+export const DELETE_DATA = "DELETE-DATA"
+export const LOGOUT = "LOGOUT"
+export const LOGIN = "LOGIN"
+export const UUID = "UUID"
+export const CHANGE_PASSWORD = "CHANGE-PASSWORD"
