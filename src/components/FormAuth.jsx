@@ -12,7 +12,7 @@ import { DELETE_DATA, LOGIN, UUID } from "./store/action/actionType";
 
 function FormAuth() {
   const dataForm = useSelector((state) => state.dataForm);
-  const { name, password } = dataForm;
+  const { username, password } = dataForm;
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -20,11 +20,11 @@ function FormAuth() {
     e.preventDefault();
     try {
       const res = await Axios.post(`${apiUrl}/login`, {
-        name,
+        username,
         password,
       });
       const { token, uuid } = res.data;
-      const nameRes = res.data.name;
+      const nameRes = res.data.username;
       await dispatch({ type: LOGIN, payload: { token, nameRes } });
       await dispatch({ type: UUID, payload: uuid });
       await dispatch({ type: DELETE_DATA });
@@ -45,7 +45,7 @@ function FormAuth() {
         <InputForm
           type="text"
           icon="BsFillPersonFill"
-          keyName="name"
+          keyName="username"
           placeholder="Username"
         />
         <InputForm

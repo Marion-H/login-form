@@ -1,7 +1,7 @@
 import { ADD_DATA, DELETE_DATA } from "../action/actionType";
 
 const initialState = {
-  name: "",
+  username: "",
   password: "",
   email: "",
   mobile: "",
