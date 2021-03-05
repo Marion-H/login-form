@@ -32,7 +32,7 @@ function FormCreate() {
         <InputForm
           type="text"
           icon="BsFillPersonFill"
-          keyName="name"
+          keyName="username"
           placeholder="Username"
         />
         <InputForm
