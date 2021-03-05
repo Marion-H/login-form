@@ -1,0 +1,30 @@
+.welcome {
+    width: 500px;
+    height: 800px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 150px 10px 10px 10px;
+    position: relative;
+
+    .buttonLogout {
+        width: 43px;
+        height: 43px;
+        background: linear-gradient(180deg, #f5d355 0%, #f57d25 100%);
+        border-radius: 100%;
+        border-style: none;
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 25px;
+    }
+
+    .titleWelcome {
+        font-size: 96px;
+        font-weight: 500;
+        line-height: 112px;
+        margin: auto;
+        padding-bottom: 23px;
+        text-align: center;
+    }
+}
