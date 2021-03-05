@@ -3,7 +3,7 @@ import { LOGIN, LOGOUT, UUID } from "../action/actionType";
 const initialState = {
   token: "",
   uuid: "",
-  name: "",
+  username: "",
 };
 
 const admin = (state = initialState, action) => {
@@ -12,7 +12,7 @@ const admin = (state = initialState, action) => {
   switch (type) {
     case LOGIN:
       const { token, nameRes} = payload
-      return { ...state, token, name: nameRes };
+      return { ...state, token, username: nameRes };
     case LOGOUT:
       sessionStorage.clear();
       return initialState;

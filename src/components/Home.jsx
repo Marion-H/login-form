@@ -21,13 +21,13 @@ function Home() {
       console.log(error);
     }
   };
-  const name = useSelector((state) => state.admin.name);
+  const username = useSelector((state) => state.admin.username);
   return (
     <div className="welcome">
       <button className="buttonLogout" onClick={() => isLogout()}>
         <BiLogOut />
       </button>
-      <h1 className="titleWelcome">Welcome {name}</h1>
+      <h1 className="titleWelcome">Welcome {username}</h1>
     </div>
   );
 }
