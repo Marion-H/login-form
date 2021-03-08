@@ -18,7 +18,7 @@ function Router() {
         <Route path="/forgotPassword" component={ForgotPwd} />
         <Route path="/check-email" component={ResetPasswordEmail} />
         <Route path="/welcome" component={Home} />
-        <Route path="/reset/:passwordToken" component={FormPasswordChange} />
+        <Route path="/reset/:resetPasswordToken" component={FormPasswordChange} />
       </Switch>
     </BrowserRouter>
   );

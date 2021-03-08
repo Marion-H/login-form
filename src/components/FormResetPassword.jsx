@@ -9,24 +9,31 @@ import Axios from "axios";
 import apiUrl from "../variable/apiUrl";
 
 function FormResetPassword() {
-
   const dataForm = useSelector((state) => state.dataForm);
-  const { email } = dataForm
-  const history = useHistory()
+  const { email } = dataForm;
+  const history = useHistory();
 
   const postEmailForReset = async (e) => {
-    e.preventDefault()
-      const emailSend = await Axios.post (`${apiUrl}/recover`, {
+    e.preventDefault();
+    try {
+      const emailSend = await Axios.post(`${apiUrl}/recover`, {
         email,
-      })
-      console.log(emailSend)
-      await history.push("/check-email")
-  }
-  
+      });
+      await history.push("/check-email");
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
   return (
     <div className="formAuth">
       <form onSubmit={postEmailForReset}>
-        <InputForm type="email" icon="AiOutlineMail" keyName="email" textPlaceHolder="Email"/>
+        <InputForm
+          type="email"
+          icon="AiOutlineMail"
+          keyName="email"
+          textPlaceHolder="Email"
+        />
         <ButtonSign text="Reset password" type="submit" />
       </form>
     </div>
