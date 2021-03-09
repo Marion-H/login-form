@@ -6,6 +6,7 @@ import Axios from "axios";
 import ButtonSign from "./common/ButtonSign";
 import InputForm from "./common/InputForm";
 import apiUrl from "../variable/apiUrl";
+import { notifyError, notifySuccess } from "./common/toastifyFunction";
 
 function FormPasswordChange() {
   const { resetPasswordToken } = useParams();
@@ -21,18 +22,19 @@ function FormPasswordChange() {
         setPwsIsSame(false);
       }
     }
-    console.log(resetPasswordToken);
   }, [newPassword, confirmPassword, pwdIsSame]);
 
   const postNewPassword = async (e) => {
     e.preventDefault();
     try {
-      const passwordSend = await Axios.post(`${apiUrl}/reset/${resetPasswordToken}`, {
+      await Axios.post(`${apiUrl}/reset/${resetPasswordToken}`, {
         newPassword,
       });
-      console.log(passwordSend);
+      const message = "your password has been reset"
+      notifySuccess(message)
     } catch (error) {
-      console.log(error)
+      const { message } = error.response.data;
+      notifyError(message)
     }
   };
 
