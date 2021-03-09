@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, UUID } from "../action/actionType";
+import { LOGIN, LOGOUT, USERNAME, UUID } from "../action/actionType";
 
 const initialState = {
   token: "",
@@ -18,6 +18,8 @@ const admin = (state = initialState, action) => {
       return initialState;
     case UUID:
       return { ...state, uuid: payload };
+    case USERNAME:
+        return { ...state, username: payload };
     default:
       return state;
   }
