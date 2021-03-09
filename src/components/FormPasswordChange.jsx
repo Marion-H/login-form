@@ -7,7 +7,7 @@ import ButtonSign from "./common/ButtonSign";
 import InputForm from "./common/InputForm";
 import apiUrl from "../variable/apiUrl";
 
-function FormPasswordChange(props) {
+function FormPasswordChange() {
   const { resetPasswordToken } = useParams();
   const [pwdIsSame, setPwsIsSame] = useState(false);
   const changePassword = useSelector((state) => state.changePassword);
@@ -27,8 +27,7 @@ function FormPasswordChange(props) {
   const postNewPassword = async (e) => {
     e.preventDefault();
     try {
-      const passwordSend = await Axios.post(`${apiUrl}/reset`, {
-        resetPasswordToken,
+      const passwordSend = await Axios.post(`${apiUrl}/reset/${resetPasswordToken}`, {
         newPassword,
       });
       console.log(passwordSend);
