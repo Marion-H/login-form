@@ -32,7 +32,7 @@ function FormAuth() {
       sessionStorage.setItem("uuid", uuid);
       const message = "Connected";
       notifySuccess(message);
-      history.push("/welcome");
+      history.push("/home");
     } catch (error) {
       const { message } = error.response.data;
       notifyError(message);

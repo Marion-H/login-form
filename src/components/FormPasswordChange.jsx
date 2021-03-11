@@ -17,7 +17,23 @@ function FormPasswordChange() {
   const strongRegExPwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i; //eslint-disable-line
   const history = useHistory();
 
-  useEffect(() => {
+  const checkResetPasswordToken = async () => {
+    try {
+      const res = await Axios.get(`${apiUrl}/users`);
+      const users = res.data;
+      const userTokenFind = users.find(
+        (user) => user.resetPasswordToken === resetPasswordToken
+      );
+      if (userTokenFind === undefined) {
+        history.push("/")
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  const checkPassword = () => {
     setCheckRegExPwdStrong(strongRegExPwd.test(newPassword));
     if (newPassword.length > 0) {
       if (newPassword === confirmPassword && checkRegExPwdStrong) {
@@ -26,7 +42,17 @@ function FormPasswordChange() {
         setPwsIsSame(false);
       }
     }
-  }, [newPassword, confirmPassword, pwdIsSame, checkRegExPwdStrong, strongRegExPwd]);
+  };
+  useEffect(() => {
+    checkResetPasswordToken();
+    checkPassword();
+  }, [
+    newPassword,
+    confirmPassword,
+    pwdIsSame,
+    checkRegExPwdStrong,
+    strongRegExPwd,
+  ]);
 
   const postNewPassword = async (e) => {
     e.preventDefault();
@@ -36,7 +62,7 @@ function FormPasswordChange() {
       });
       const message = "your password has been reset";
       notifySuccess(message);
-      history.push("/validation")
+      history.push("/validation");
     } catch (error) {
       const { message } = error.response.data;
       notifyError(message);
