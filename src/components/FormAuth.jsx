@@ -8,7 +8,7 @@ import { notifyError, notifySuccess } from "./common/toastifyFunction";
 
 import "./scss/formAuth.scss";
 import InputForm from "./common/InputForm";
-import { DELETE_DATA, LOGIN, UUID } from "./store/action/actionType";
+import { DELETE_DATA, LOGIN, USERNAME, UUID } from "./store/action/actionType";
 
 function FormAuth() {
   const dataForm = useSelector((state) => state.dataForm);
@@ -23,10 +23,10 @@ function FormAuth() {
         username,
         password,
       });
-      const { token, uuid } = res.data;
-      const nameRes = res.data.username;
-      await dispatch({ type: LOGIN, payload: { token, nameRes } });
+      const { token, uuid} = res.data;
+      await dispatch({ type: LOGIN, payload: token });
       await dispatch({ type: UUID, payload: uuid });
+      await dispatch({type: USERNAME, payload: username })
       await dispatch({ type: DELETE_DATA });
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("uuid", uuid);
