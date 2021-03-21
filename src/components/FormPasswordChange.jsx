@@ -46,6 +46,7 @@ function FormPasswordChange() {
   useEffect(() => {
     checkResetPasswordToken();
     checkPassword();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     newPassword,
     confirmPassword,
