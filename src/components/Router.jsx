@@ -10,9 +10,9 @@ import ResetPasswordValidation from "./ResetPasswordValidation";
 
 
 function AuthRoute({ component: Component, ...rest }) {
-  const token = useSelector((state) => state.admin.token);
+  const tokenSession = sessionStorage.getItem("token");
 
-  if (token) {
+  if (tokenSession) {
     return (
       <Route
         {...rest}
